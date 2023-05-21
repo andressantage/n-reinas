@@ -8,5 +8,85 @@
 </head>
 <body>
     jkss
+
+    <script>
+//n: valor de orden de la matriz
+let n=5
+
+//Genera matriz de 1
+let matriz = [];
+for (let i = 0; i < n; i++) {
+    matriz[i]=[]
+  for (let j = 0; j < n; j++) {
+    matriz[i][j]=1;
+  }
+}
+
+//posicion donde se ponen las reinas (k, p)
+k=2
+p=3
+matriz[k][p]=7;
+//diagonal negativa arriba
+for (let i = k-1; 0<=i; i=i-1) {
+    for (let j = p-1; 0<=j; j=j-1) {
+    if((p-j)>=0){
+    if((k-i)===(p-j)){
+         matriz[i][j]=0;
+    }
+    }
+  }
+} 
+//diagonal negativa abajo
+for (let i = 1; i <= n; i = i + 1) {
+    if((k+i)<n && (p+i)<n){
+        matriz[k+i][p+i] = 0;
+    }
+}
+
+//diagonal positiva abajo
+for (let j = 2; j < n; j++) {
+for (let i = 2; (k+i) < n; i++) {
+    if((p-j)>=0){
+        if((k+i-1)===(p-j+1)){
+         matriz[k+i][p-j]=0;
+        }
+    }
+  }
+} 
+//diagonal positiva arriba
+for (let i = 1; i < n; i++) {
+    for (let j = 1; (p+j) < n; j++) {
+    if((k-i)>=0){
+        if((k-i+1)===(p+j-1)){
+         matriz[k-i][p+j]=0;
+        }
+    }
+  }
+}
+
+//abajo
+for (let j = 1; (p+j) < n; j++) {
+matriz[k][p+j]=0;
+} 
+//derecha
+for (let i = 1; (k+i) < n; i++) {
+    matriz[k+i][p]=0;
+}  
+//arriba
+for (let i = 1; i < n; i++) {
+    if((k-i)>=0){
+        matriz[k-i][p]=0;
+    }
+}
+//izquierda
+for (let j = 1; j < n; j++) {
+    if((p-j)>=0){
+        matriz[k][p-j]=0;
+    }
+}  
+
+console.log(matriz)
+
+    </script>
 </body>
 </html>

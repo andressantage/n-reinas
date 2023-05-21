@@ -1,0 +1,40 @@
+//diagonal negativa arriba
+for (let i = 1; i < n; i++) {
+  for (let j = 1; j < n; j++) {
+    if((k-i)>=0 && (p-j)>=0){
+    if((k-i)===(p-j)){
+         matriz[k-i][p-j]=0;
+    }
+    }
+  }
+} 
+
+//diagonal negativa abajo
+for (let i = 1; (k+i) < n; i++) {
+  for (let j = 1; (p+j) < n; j++) {
+    if((k+i)===(p+j)){
+         matriz[k+i][p+j]=0;
+    }
+  }
+} 
+
+//diagonal positiva abajo
+for (let j = 2; j < n; j++) {
+for (let i = 2; (k+i) < n; i++) {
+    if((p-j)>=0){
+        if((k+i-1)===(p-j+1)){
+         matriz[k+i][p-j]=0;
+        }
+    }
+  }
+} 
+//diagonal positiva arriba
+for (let i = 1; i < n; i++) {
+    for (let j = 1; (p+j) < n; j++) {
+    if((k-i)>=0){
+        if((k-i+1)===(p+j-1)){
+         matriz[k-i][p+j]=0;
+        }
+    }
+  }
+}
