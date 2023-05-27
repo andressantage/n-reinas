@@ -4,89 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>N-Reinas</title>
+    <link rel="shortcut icon" href="img/logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    jkss
+<div class="d-flex justify-content-center align-items-center mt-4">
+  <h1 class="fondo">N-Reinas</h1>
+</div>
 
-    <script>
-//n: valor de orden de la matriz
-let n=5
+<div class="container ancho my-1">
+  <div class="form-group mb-1 d-flex justify-content-center align-items-center flex-column">
+    <label for="seleccion" class="m-1 fondo">Cantidad de reinas:</label>
+    <input type="number" class="form-control text-center" id="numero" placeholder="Ingresa numero de reinas">
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <input id="mostraTodo" type="button" class="btn btn-danger m-1" value="Mostrar todas las soluciones ">
+  </div>
+</div>
 
-//Genera matriz de 1
-let matriz = [];
-for (let i = 0; i < n; i++) {
-    matriz[i]=[]
-  for (let j = 0; j < n; j++) {
-    matriz[i][j]=1;
-  }
-}
+<div class="borde mb-"></div>
+<div class="container ancho1 my-1">
+  <label for="seleccion" class="m-1 fondo d-flex justify-content-center align-items-center ">Elige numero de solución:</label>
+  <div class="form-group mb-1 d-flex justify-content-center align-items-center flex-row">
+    <input id="solucionNumero" type="number" class="form-control text-center mx-1" placeholder="N° de solución">
+    <input id="mostraUna" type="button" class="btn btn-danger" value="Mostrar solución">
+  </div>
+</div>
 
-//posicion donde se ponen las reinas (k, p)
-k=2
-p=3
-matriz[k][p]=7;
-//diagonal negativa arriba
-for (let i = k-1; 0<=i; i=i-1) {
-    for (let j = p-1; 0<=j; j=j-1) {
-    if((p-j)>=0){
-    if((k-i)===(p-j)){
-         matriz[i][j]=0;
-    }
-    }
-  }
-} 
-//diagonal negativa abajo
-for (let i = 1; i <= n; i = i + 1) {
-    if((k+i)<n && (p+i)<n){
-        matriz[k+i][p+i] = 0;
-    }
-}
+<div id="a2" class="d-flex justify-content-center align-items-center flex-column mb-1">
+</div>
 
-//diagonal positiva abajo
-for (let j = 2; j < n; j++) {
-for (let i = 2; (k+i) < n; i++) {
-    if((p-j)>=0){
-        if((k+i-1)===(p-j+1)){
-         matriz[k+i][p-j]=0;
-        }
-    }
-  }
-} 
-//diagonal positiva arriba
-for (let i = 1; i < n; i++) {
-    for (let j = 1; (p+j) < n; j++) {
-    if((k-i)>=0){
-        if((k-i+1)===(p+j-1)){
-         matriz[k-i][p+j]=0;
-        }
-    }
-  }
-}
+<div class="borde"></div>
+<div id="a1" class="d-flex justify-content-center align-items-center flex-column">
+</div>
 
-//abajo
-for (let j = 1; (p+j) < n; j++) {
-matriz[k][p+j]=0;
-} 
-//derecha
-for (let i = 1; (k+i) < n; i++) {
-    matriz[k+i][p]=0;
-}  
-//arriba
-for (let i = 1; i < n; i++) {
-    if((k-i)>=0){
-        matriz[k-i][p]=0;
-    }
-}
-//izquierda
-for (let j = 1; j < n; j++) {
-    if((p-j)>=0){
-        matriz[k][p-j]=0;
-    }
-}  
-
-console.log(matriz)
-
-    </script>
 </body>
 </html>
